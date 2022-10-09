@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title>{{username}}'s page</title>
+    {% include "utils/default_import.html" %}
+</head>
+
+<body>
+    {% include "utils/navBar.html" %}
+    <div class="content mb-3">
+        <div class="media">
+            <img src="..." class="mr-3" alt="...">
+            <div class="media-body">
+                <h5 class="mt-0">Media heading</h5>
+                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+            </div>
+        </div>
+        <h2>곡별 최고기록</h2>
+        <div data-spy="scroll" data-target="#navbar-example2" data-offset="0">
+            <h4 id="fat">@fat</h4>
+            <p>...</p>
+            <h4 id="mdo">@mdo</h4>
+            <p>...</p>
+            <h4 id="one">one</h4>
+            <p>...</p>
+            <h4 id="two">two</h4>
+            <p>...</p>
+            <h4 id="three">three</h4>
+            <p>...</p>
+        </div>
+</body>
+
+</html>

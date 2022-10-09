@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/main_game.css')}}">
+    <title>{{title}}</title>
+
+    <script>
+    </script>
+    {% include "utils/default_import.html" %}
+</head>
+
+<body>
+    {% if data['root'] %}
+    <audio id="music" src="{{url_for('static', filename=data['root'])}}"></audio> {% endif %}
+    <canvas id="myCanvas" width="600" height="700" style="border:4px solid #7f7f7f; background: black;">
+    </canvas>
+    <script>
+        const noteInfo = eval("{{data[ 'noteInfo']}} ");
+        const stackLeniency = eval("{{data[ 'stackLeniency']}} ");
+        const previewTime = eval("{{data[ 'previewTime']}} ");
+        const countdown = eval("{{data[ 'countdown']}} ");
+        const songName = "{{data[ 'songName']}} ";
+        const songWriter = "{{data[ 'songWriter']}} ";
+    </script>
+    <script src="{{url_for('static', filename='js/game/app.js')}}"></script>
+</body>
+
+</html>

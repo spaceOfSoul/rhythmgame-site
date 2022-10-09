@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    {% include "utils/default_import.html" %}
+</head>
+
+<body>
+    {% include "utils/navBar.html" %}
+    <div class="container mt-3">
+        <h4>로그인</h4>
+        <form action="/login" method="POST">
+            <!-- csrf토큰 -->
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+
+            <div class="form-group">
+                <label>아이디</label>
+                <input type="text" class="form-control" name="id" required>
+            </div>
+            {% if state == 1 %}
+            <p class="text-danger">아이디가 비어있습니다.</p>
+            {% elif state == 4 %}
+            <p class="text-danger">해당 계정은 로그인 횟수를 초과하였습니다<br>관리자에게 문의해주세요.</p>
+            {% endif %}
+
+            <div class="form-group">
+                <label>비번</label>
+                <input type="password" class="form-control" name="pw" id="pw" required>
+            </div>
+            {% if state == 2 %}
+            <p class="text-danger">비밀번호가 비어있습니다.</p>
+            {% elif state == 3%}
+            <p class="text-danger">아이디 혹은 비밀번호가 일치하지 않습니다.</p>
+            {% elif state == 5 %}
+            <p class="text-danger">다른 브라우저에서 로그인 중입니다.</p>
+            {% endif %}
+            <button type="submit" class="btn btn-outline-secondary">log in</button>
+        </form>
+        <br>
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">계정이 없으신가요?</h5>
+                <p class="card-text"></p>
+                <a href="/signup" class="card-link">회원가입</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
